@@ -1,0 +1,51 @@
+table Genre {
+  id int
+  name String
+}
+
+table Book {
+  id int
+  title String
+  genre [int] [ref: > Genre.id]
+  authors [String] [ref: > Authors.id]
+  publisherId int [ref: - Publisher.id]
+  publishedDate datetime
+  isbn String
+  translater String
+}
+
+table Authors {
+  // same as the people id
+  id int [ref: - People.id]
+  genres [int] [ref: > Genre.id]
+  knownFor [String]
+}
+
+table Inventory {
+  id int
+  bookId int [ref: - Book.id]
+  numberStored int
+}
+
+table People {
+  id int
+  firstName String
+  lastName String
+  born datetime
+  died datetime
+  phone String
+  address String
+}
+
+table Publisher {
+  id int
+  address String
+  phone String
+}
+
+table Borrowed {
+  id int
+  borrowerId id [ref: > People.id]
+  bookId id [ref: > Book.id]
+}
+
