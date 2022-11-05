@@ -5,4 +5,4 @@ Library management database with MongoDB for Advanced databases system universit
 
 ### Entity relationship diagram:
 The diagram was created with [dbdiagram.io](https://dbdiagram.io/).
-<img src=./erd.png />
+<img src=./docs/erd.png />
