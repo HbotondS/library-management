@@ -4,5 +4,9 @@ Library management database with MongoDB for Advanced databases system universit
 
 
 ### Entity relationship diagram:
-The diagram was created with [dbdiagram.io](https://dbdiagram.io/).
+The diagram was created with [Lucid App](https://lucid.app)
 <img src=./docs/erd.png />
+
+### Relationship model:
+The model was created with [dbdiagram.io](https://dbdiagram.io/).
+<img src=./docs/em.png />
