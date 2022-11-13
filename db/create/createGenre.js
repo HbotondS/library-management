@@ -9,10 +9,6 @@ db.createCollection("Genre", {
             title: "Genre object validation",
             required: ["id", "name"],
             properties: {
-                id: {
-                    bsonType: "int",
-                    description: "'id' must be an int and is required"
-                },
                 name: {
                     bsonType: "string",
                     description: "'name' must be a string and is required"

@@ -9,10 +9,6 @@ db.createCollection("Authors", {
             title: "Authors object validation",
             required: ["id, genres, knownFor"],
             properties: {
-                id: {
-                    bsonType: "int",
-                    description: "'id' must be a int and is required"
-                },
                 genres: {
                     bsonType: ["int"],
                     description: "'genres' must be a string and is required"

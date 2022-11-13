@@ -9,10 +9,6 @@ db.createCollection("People", {
             title: "People object validation",
             required: ["firstName, lastName, born, address, phone"],
             properties: {
-                id: {
-                    bsonType: "int",
-                    description: "'id' must be an int and is required"
-                },
                 firstName: {
                     bsonType: "string",
                     description: "'firstName' must be a string and is required"

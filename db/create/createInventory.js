@@ -9,10 +9,6 @@ db.createCollection("Inventory", {
             title: "Inventory object validation",
             required: ["id, numberStored, bookId"],
             properties: {
-                id: {
-                    bsonType: "int",
-                    description: "'id' must be a int and is required"
-                },
                 numberStored: {
                     bsonType: "int",
                     description: "'numberStored' must be an int and is required"

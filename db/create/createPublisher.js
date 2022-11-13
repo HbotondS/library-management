@@ -9,10 +9,6 @@ db.createCollection("Publisher", {
             title: "Publisher object validation",
             required: ["id, address, phone"],
             properties: {
-                id: {
-                    bsonType: "int",
-                    description: "'id' must be a int and is required"
-                },
                 address: {
                     bsonType: "string",
                     description: "'address' must be a string and is required"
