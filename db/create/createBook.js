@@ -7,7 +7,7 @@ db.createCollection("Book", {
         $jsonSchema: {
             bsonType: "object",
             title: "Book object validation",
-            required: ["id, title, genre, authors, publisherId, publishedDate, isbn"],
+            required: ["title", "genre", "authors", "publisherId", "publishedDate", "isbn"],
             properties: {
                 title: {
                     bsonType: "string",
@@ -22,8 +22,8 @@ db.createCollection("Book", {
                     description: "'authors' must be a string and is required"
                 },
                 publisherId: {
-                    bsonType: "int",
-                    description: "'publisherId' must be a int and is required"
+                    bsonType: "objectId",
+                    description: "'publisherId' must be a objectId and is required"
                 },
                 publishedDate: {
                     bsonType: "date",

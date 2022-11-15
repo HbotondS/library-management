@@ -7,8 +7,12 @@ db.createCollection("Authors", {
         $jsonSchema: {
             bsonType: "object",
             title: "Authors object validation",
-            required: ["id, genres, knownFor"],
+            required: ["peopleId", "genres", "knownFor"],
             properties: {
+                peopleId: {
+                    bsonType: "objectId",
+                    description: "'peopleId' must be an ObjectId and is required"
+                },
                 genres: {
                     bsonType: ["int"],
                     description: "'genres' must be a string and is required"

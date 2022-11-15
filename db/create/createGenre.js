@@ -7,7 +7,7 @@ db.createCollection("Genre", {
         $jsonSchema: {
             bsonType: "object",
             title: "Genre object validation",
-            required: ["id", "name"],
+            required: ["name"],
             properties: {
                 name: {
                     bsonType: "string",

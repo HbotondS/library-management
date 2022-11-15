@@ -7,15 +7,15 @@ db.createCollection("Borrowed", {
         $jsonSchema: {
             bsonType: "object",
             title: "Borrowed object validation",
-            required: ["id, borrowerId, bookId"],
+            required: ["borrowerId", "bookId"],
             properties: {
                 borrowerId: {
-                    bsonType: "int",
-                    description: "'borrowerId' must be an int and is required"
+                    bsonType: "objectId",
+                    description: "'borrowerId' must be an objectId and is required"
                 },
                 bookId: {
-                    bsonType: "int",
-                    description: "'bookId' must be a int and is required"
+                    bsonType: "objectId",
+                    description: "'bookId' must be a objectId and is required"
                 }
             }
         }

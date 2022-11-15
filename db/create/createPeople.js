@@ -7,7 +7,7 @@ db.createCollection("People", {
         $jsonSchema: {
             bsonType: "object",
             title: "People object validation",
-            required: ["firstName, lastName, born, address, phone"],
+            required: ["firstName", "lastName", "born", "address", "phone"],
             properties: {
                 firstName: {
                     bsonType: "string",
