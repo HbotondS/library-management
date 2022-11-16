@@ -7,19 +7,27 @@ db.createCollection("Book", {
         $jsonSchema: {
             bsonType: "object",
             title: "Book object validation",
-            required: ["title", "genre", "authors", "publisherId", "publishedDate", "isbn"],
+            required: ["title", "genres", "authors", "publisherId", "publishedDate", "isbn"],
             properties: {
                 title: {
                     bsonType: "string",
                     description: "'title' must be an string and is required"
                 },
-                genre: {
-                    bsonType: ["string"],
-                    description: "'genre' must be a string and is required"
+                genres: {
+                    bsonType: "array",
+                    minItems: 1,
+                    description: "'genres' must be an array of string and is required",
+                    items: {
+                        bsonType: "string"
+                    }
                 },
                 authors: {
-                    bsonType: ["string"],
-                    description: "'authors' must be a string and is required"
+                    bsonType: "array",
+                    minItems: 1,
+                    description: "'authors' must be an array of string and is required",
+                    items: {
+                        bsonType: "string"
+                    }
                 },
                 publisherId: {
                     bsonType: "objectId",
