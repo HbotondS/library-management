@@ -11,6 +11,7 @@ db.createCollection("Inventory", {
             properties: {
                 numberStored: {
                     bsonType: "int",
+                    minimum: 0,
                     description: "'numberStored' must be an int and is required"
                 },
                 bookId: {
