@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let rawdata = fs.readFileSync('./data/bookTitles.json');
+let rawdata = fs.readFileSync('./data/books.json');
 let json = JSON.parse(rawdata);
 
 db = connect('mongodb://localhost/library-management');
@@ -12,6 +12,6 @@ for (var key in json) {
     db.Authors.insertOne({
         peopleId: peopleId,
         genres: genres,
-        knownFor: [json[key].name]
+        knownFor: [json[key].title]
     });
 }
