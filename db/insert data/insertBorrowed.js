@@ -1,4 +1,6 @@
-db = connect('mongodb://localhost/library-management');
+const { mongodbURL, insertSuccessful } = require('../common/common.js')
+
+db = connect(mongodbURL);
 
 for (var i = 0; i <= 99; i++) {
     bookId = db.Book.aggregate([{$sample: {size: 1}}, {$project: {_id: 1}}])
@@ -12,3 +14,5 @@ for (var i = 0; i <= 99; i++) {
         bookId: bookId
     });
 }
+
+insertSuccessful('Borrowed');

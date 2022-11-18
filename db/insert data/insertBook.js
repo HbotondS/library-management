@@ -1,15 +1,8 @@
-const fs = require('fs');
+const { progress, mongodbURL, readJson, insertSuccessful } = require('../common/common.js');
 
-let rawdata = fs.readFileSync('./data/books.json');
-let json = JSON.parse(rawdata);
+let json = readJson('./data/books.json');
 
-db = connect('mongodb://localhost/library-management');
-
-progress = () => {
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
-    process.stdout.write(`${key}/1000`);
-}
+db = connect(mongodbURL);
 
 for (var key in json) {
     nrAuthors = Math.floor(Math.random() * 2) + 1;
@@ -42,5 +35,7 @@ for (var key in json) {
         translater: `${translater.firstName} ${translater.lastName}`
     });
 
-    progress();
+    progress(key, 999);
 }
+
+insertSuccessful('Book');

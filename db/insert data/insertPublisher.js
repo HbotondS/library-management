@@ -1,10 +1,8 @@
-const fs = require('fs');
-const { addresses, phoneNumbers, randomFrom } = require('./common.js');
+const { addresses, phoneNumbers, randomFrom, mongodbURL, readJson, insertSuccessful } = require('../common/common.js');
 
-let rawdata = fs.readFileSync('./data/publishers.json');
-let json = JSON.parse(rawdata);
+let json = readJson('./data/publishers.json');
 
-db = connect('mongodb://localhost/library-management');
+db = connect(mongodbURL);
 
 for (key in json) {
     company = json[key];
@@ -14,3 +12,5 @@ for (key in json) {
         phone: randomFrom(phoneNumbers)
     });
 }
+
+insertSuccessful('Publisher');

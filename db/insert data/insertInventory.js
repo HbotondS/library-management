@@ -1,4 +1,6 @@
-db = connect('mongodb://localhost/library-management');
+const { mongodbURL, insertSuccessful } = require('../common/common.js');
+
+db = connect(mongodbURL);
 
 for (var i = 0; i <= 9999; i++) {
     bookId = publisher = db.Book.aggregate([{$sample: {size: 1}}, {$project: {_id: 1}}])
@@ -9,3 +11,5 @@ for (var i = 0; i <= 9999; i++) {
         numberStored: Math.floor(Math.random() * 100)
     });
 }
+
+insertSuccessful('Inventory');

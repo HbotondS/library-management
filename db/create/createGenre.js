@@ -1,6 +1,6 @@
-db = connect('mongodb://localhost');
+const { mongodbURL, createSuccessful } = require('../common/common.js');
 
-db = db.getSiblingDB('library-management');
+db = connect(mongodbURL);
 
 db.createCollection("Genre", {
     validator: {
@@ -18,4 +18,4 @@ db.createCollection("Genre", {
     }
 });
 
-print('Genre collection is created successfully.');
+createSuccessful('Genre');
