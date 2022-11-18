@@ -3,6 +3,7 @@ import os
 
 # this script is used to execute the MongoDB schema creation scripts located in db/create folder
 
-files = [f for f in os.listdir('../create')]
+pathToFiles = '../create'
+files = [f for f in os.listdir(pathToFiles) if os.path.isfile(os.path.join(pathToFiles, f))]
 for f in files:
-    subprocess.run("mongosh --file ../create/" + f)
+    subprocess.run(''.join('mongosh --file', pathToFiles, f))

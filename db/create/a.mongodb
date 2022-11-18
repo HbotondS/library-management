@@ -1,7 +1,0 @@
-const {createSuccessful } = require('../common/common.js');
-
-db = connect('mongodb://localhost/test')
-
-db.createCollection("test")
-
-createSuccessful('test')
