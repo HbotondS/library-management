@@ -32,7 +32,10 @@ for (var key in json) {
         publisherId: publisher,
         publishedDate: new Date(new Date() - Math.random()*(1e+12)),
         isbn: json[key].isbn,
-        translater: `${translater.firstName} ${translater.lastName}`
+        translater: {
+            firstName: translater.firstName,
+            lastName: translater.lastName
+        }
     });
 
     progress(key, 999);

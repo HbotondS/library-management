@@ -42,8 +42,17 @@ db.createCollection("Book", {
                     description: "'isbn' must be a string and is required"
                 },
                 translater: {
-                    bsonType: "string",
-                    description: "'translater' must be a string"
+                    bsonType: "object",
+                    description: "'translater' must be an object",
+                    required: ["firstName", "lastName"],
+                    properties: {
+                        firstName: {
+                            bsonType: "string"
+                        },
+                        lastName: {
+                            bsonType: "string"
+                        }
+                    }
                 }
             }
         }
