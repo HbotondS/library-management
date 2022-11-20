@@ -6,4 +6,4 @@ import os
 pathToFiles = '../create'
 files = [f for f in os.listdir(pathToFiles) if os.path.isfile(os.path.join(pathToFiles, f))]
 for f in files:
-    subprocess.run(''.join('mongosh --file', pathToFiles, f))
+    subprocess.run(''.join(['mongosh --file ', pathToFiles, '/', f]))
