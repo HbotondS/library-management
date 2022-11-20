@@ -4,6 +4,6 @@ var bookGenresArr = ['Adventure', 'Comic', 'Crime', 'Docufiction', 'Epistolary',
 
 db = connect(mongodbURL);
 
-bookGenresArr.forEach(genre => db.Genre.insertOne({name: genre}));
+bookGenresArr.forEach((genre) => db.Genre.insertOne({ name: genre }));
 
-insertSuccessful("Genre");
+insertSuccessful('Genre');

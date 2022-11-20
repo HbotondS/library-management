@@ -5,12 +5,12 @@ let json = readJson('./data/publishers.json');
 db = connect(mongodbURL);
 
 for (key in json) {
-    company = json[key];
-    db.Publisher.insertOne({
-        name: company["fake-company-name"],
-        address: randomFrom(addresses),
-        phone: randomFrom(phoneNumbers)
-    });
+  company = json[key];
+  db.Publisher.insertOne({
+    name: company['fake-company-name'],
+    address: randomFrom(addresses),
+    phone: randomFrom(phoneNumbers),
+  });
 }
 
 insertSuccessful('Publisher');

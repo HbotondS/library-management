@@ -6,14 +6,14 @@ lastNames = ['Nagy', 'Lukacs', 'Jonas', 'Kovacs', 'Gulyas', 'Szucs', 'Toth', 'Bi
 db = connect(mongodbURL);
 
 for (var i = 0; i <= 999999; i++) {
-    db.People.insertOne({
-        firstName: randomFrom(firstNames),
-        lastName: randomFrom(lastNames),
-        born: new Date(new Date() - Math.random()*(1e+12)),
-        phone: randomFrom(phoneNumbers),
-        address: randomFrom(addresses)
-    });
-    progress(i, 999999);
+  db.People.insertOne({
+    firstName: randomFrom(firstNames),
+    lastName: randomFrom(lastNames),
+    born: new Date(new Date() - Math.random() * 1e12),
+    phone: randomFrom(phoneNumbers),
+    address: randomFrom(addresses),
+  });
+  progress(i, 999999);
 }
 
 insertSuccessful('People');

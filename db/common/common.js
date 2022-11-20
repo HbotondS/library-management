@@ -6,27 +6,27 @@ const phoneNumbers = ['(307) 312-1282', '(331) 384-5880', '(408) 154-3110', '(38
 
 const mongodbURL = 'mongodb://localhost/library-management';
 
-randomFrom = (array) => array[Math.floor((Math.random()*array.length))];
+randomFrom = (array) => array[Math.floor(Math.random() * array.length)];
 
 progress = (value, range) => {
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
-    process.stdout.write(`${value}/${range}`);
-}
+  process.stdout.clearLine();
+  process.stdout.cursorTo(0);
+  process.stdout.write(`${value}/${range}`);
+};
 
 readJson = (jsonPath) => JSON.parse(fs.readFileSync(jsonPath));
 
-createSuccessful = (tableName) => console.log(`${tableName} collection is created successfully.`)
+createSuccessful = (tableName) => console.log(`${tableName} collection is created successfully.`);
 
 insertSuccessful = (tableName) => console.log(`Insert into ${tableName} was successful.`);
 
 module.exports = {
-    addresses, 
-    phoneNumbers, 
-    randomFrom, 
-    progress, 
-    mongodbURL, 
-    readJson, 
-    createSuccessful, 
-    insertSuccessful
+  addresses, 
+  phoneNumbers, 
+  randomFrom, 
+  progress, 
+  mongodbURL, 
+  readJson, 
+  createSuccessful, 
+  insertSuccessful
 };    
