@@ -1,0 +1,12 @@
+config =  {
+    _id: "cfgrs",
+    version: 1,
+    configsvr: true,
+    members: [
+      { _id : 0, host : "172.29.160.1:40001" },
+      { _id : 1, host : "172.29.160.1:40002" },
+      { _id : 2, host : "172.29.160.1:40003" }
+    ]
+}
+
+rs.initiate(config)
