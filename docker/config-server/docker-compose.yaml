@@ -3,33 +3,67 @@ version: '3'
 services:
 
   cfgsvr1:
-    container_name: cfgsvr1
+    hostname: cfgsvr1
+    container_name: local-config-server1
     image: mongo
-    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip "0.0.0.0" --dbpath /data/db
+    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip_all --dbpath /data/db
     ports:
       - 40001:27017
+    networks:
+      - mongodb-net
     volumes:
       - cfgsvr1:/data/db
+    restart: always
 
   cfgsvr2:
-    container_name: cfgsvr2
+    depends_on: 
+      - cfgsvr1
+    hostname: cfgsvr2
+    container_name: local-config-server2
     image: mongo
-    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip "0.0.0.0" --dbpath /data/db
+    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip_all --dbpath /data/db
     ports:
       - 40002:27017
+    networks:
+      - mongodb-net
     volumes:
       - cfgsvr2:/data/db
+    restart: always
 
   cfgsvr3:
-    container_name: cfgsvr3
+    depends_on: 
+      - cfgsvr2
+    hostname: cfgsvr3
+    container_name: local-config-server3
     image: mongo
-    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip "0.0.0.0" --dbpath /data/db
+    command: mongod --configsvr --replSet cfgrs --port 27017 --bind_ip_all --dbpath /data/db
     ports:
       - 40003:27017
+    networks:
+      - mongodb-net
     volumes:
       - cfgsvr3:/data/db
+    restart: always
+
+  mongosetup:
+    depends_on:
+      - cfgsvr1
+      - cfgsvr2
+      - cfgsvr3
+    image: mongo
+    container_name: config-server-setup
+    networks:
+      - mongodb-net
+    volumes:
+      - .:/scripts
+    entrypoint: ["bash", "/scripts/config-setup.sh"]
+    restart: "no"
 
 volumes:
   cfgsvr1: {}
   cfgsvr2: {}
   cfgsvr3: {}
+
+networks:
+  mongodb-net:
+    name: custom_network

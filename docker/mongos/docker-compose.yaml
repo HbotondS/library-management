@@ -3,8 +3,17 @@ version: '3'
 services:
 
   mongos:
-    container_name: mongos
+    hostname: mongos
+    container_name: mongos-server
     image: mongo
-    command: mongos --configdb cfgrs/172.29.160.1:40001,172.29.160.1:40002,172.29.160.1:40003 --bind_ip 0.0.0.0 --port 27017
+    command: mongos --configdb cfgrs/cfgsvr1:27017,cfgsvr2:27017,cfgsvr3:27017 --bind_ip_all --port 27017
     ports:
       - 60000:27017
+    networks:
+      - mongodb-net
+    restart: always
+
+networks:
+  mongodb-net:
+    external:
+      name: custom_network
