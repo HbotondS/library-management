@@ -5,27 +5,14 @@ Navigate to the config-server folder and start the config servers (3 memeber rep
 ```
 docker compose up -d
 ```
-After the servers are running, initialize the replica set with the following command:
-```
-mongosh 172.29.160.1:40001 --file config_replicaset.mongodb
-```
+After the replica set containers are up, there is a fourth container which will initialize the replica set setup.
 
-### Shard server
-Navigate to shard1 folder and start the shard1 servers (3 member replica set)
-```
-docker compose up -d
-```
-After the servers are running, initialize the replica set with the following command:
-```
-mongosh 172.29.160.1:50001 --file shard_replicaset.mongodb
-```
+### Shard servers
+Run the docker compose files in both shard1 & shard2 folder, which will create the replica set containers and will initialize the replica set similar like the config server.
 
 ### Mongos Router
-Navigate to mongos folder and start the mongos server
+Navigate to mongos folder and start the mongos container:
 ```
 docker compose up -d
 ```
-After the server is running, add shards with the following command:
-```
-mongosh 172.29.160.1:60000 --file mongos.mongodb
-```
+After the container is running, follow the instructions in the [readme](./mongos/README.md) to how to add the shards to MongoDB.
