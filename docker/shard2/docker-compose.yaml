@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+
+  shard2svr1:
+    hostname: shard2svr1
+    container_name: local-shard2-server1
+    image: mongo
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db
+    ports:
+      - 50011:27017
+    networks:
+      - mongodb-net
+    volumes:
+      - shard2svr1:/data/db
+    restart: always
+
+  shard2svr2:
+    depends_on:
+      - shard2svr1
+    hostname: shard2svr2
+    container_name: local-shard2-server2
+    image: mongo
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db
+    ports:
+      - 50012:27017
+    networks:
+      - mongodb-net
+    volumes:
+      - shard2svr2:/data/db
+    restart: always
+
+  shard2svr3:
+    depends_on:
+      - shard2svr2
+    hostname: shard2svr3
+    container_name: local-shard2-server3
+    image: mongo
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db
+    ports:
+      - 50013:27017
+    networks:
+      - mongodb-net
+    volumes:
+      - shard2svr3:/data/db
+    restart: always
+
+  shard2setup:
+    depends_on:
+      - shard2svr1
+      - shard2svr2
+      - shard2svr3
+    container_name: shard2-setup
+    networks:
+      - mongodb-net
+    image: mongo
+    volumes:
+      - .:/scripts
+    entrypoint: ["bash", "/scripts/shard2-setup.sh"]
+    restart: "no"
+
+volumes:
+  shard2svr1: {}
+  shard2svr2: {}
+  shard2svr3: {}
+
+networks:
+  mongodb-net:
+    external:
+      name: custom_network
