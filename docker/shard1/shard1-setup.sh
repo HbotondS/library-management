@@ -10,17 +10,17 @@ mongosh --host shard1svr1:27017 <<EOF
     "members": [
       {
         "_id": 0,
-        "host": "172.24.16.1:50001",
+        "host": "shard1svr1:27017",
         "priority": 2
       },
       {
         "_id": 1,
-        "host": "172.24.16.1:50002",
+        "host": "shard1svr2:27017",
         "priority": 0
       },
       {
         "_id": 2,
-        "host": "172.24.16.1:50003",
+        "host": "shard1svr3:27017",
         "priority": 0
       }
     ]
