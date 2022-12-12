@@ -1,0 +1,3 @@
+sh.enableSharding("library-management")
+
+sh.shardCollection("library-management.People", {"born": "hashed"})
