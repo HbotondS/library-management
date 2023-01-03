@@ -1,6 +1,6 @@
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-black-magic.svg)](https://forthebadge.com)
 # library-management
-Library management database with MongoDB for Advanced databases system university course.
+Library management database with MongoDB for *Advanced databases systems* university course.
 
 | Entity relationship diagram | Relationship model |
 | :---------------: | :---------------: |
