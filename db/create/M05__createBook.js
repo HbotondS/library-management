@@ -54,6 +54,11 @@ db.createCollection('Book', {
             },
           },
         },
+        numberStored: {
+          bsonType: 'int',
+          minimum: 0,
+          description: "'numberStore' must be an int and is required",
+        },
       },
     },
   },

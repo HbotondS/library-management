@@ -44,6 +44,7 @@ for (var key in json) {
       firstName: translater.firstName,
       lastName: translater.lastName,
     },
+    numberStored: Math.floor(Math.random() * 100)
   });
 
   progress(key, 999);
