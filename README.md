@@ -4,7 +4,7 @@ Library management database with MongoDB for *Advanced databases systems* univer
 
 | Entity relationship diagram | Relationship model |
 | :---------------: | :---------------: |
-| <img src=./docs/erd.png /> <sub>The diagram was created with <a href="https://lucid.app">Lucid App</a></sub> | <img src=./docs/em.png /> <sub>The model was created with<a href="https://dbdiagram.io/">dbdiagram.io</a></sub> |
+| <img src=./docs/erd.png /> <sub>The diagram was created with <a href="https://lucid.app">Lucid App</a></sub> | <img src=./docs/em.png /> <sub>The model was created with <a href="https://dbdiagram.io/">dbdiagram.io</a></sub> |
 
 ### Migration
 If you have MongoDB Shell installed you can proceed to the next step, if don't, you can install it from [here](https://www.mongodb.com/try/download/shell) and add it to the path variables. <br>
