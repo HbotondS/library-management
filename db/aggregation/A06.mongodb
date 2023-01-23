@@ -1,0 +1,32 @@
+// get the most and least borrowed genre
+use('library-management')
+
+db.Book.aggregate([
+    {
+        $unwind: "$genres"
+    },
+    {
+        $lookup: {
+            from: "Borrowed",
+            localField: "_id",
+            foreignField: "bookId",
+            as: "borrowed"
+        }
+    },
+    {
+        $group: {
+            _id: "$genres",
+            count: { $sum: { $size: "$borrowed" } }
+        }
+    },
+    {
+        $sort: { count: -1 }
+    },
+    {
+        $group: {
+            _id: null,
+            leastBorrowed: { $first: "$$ROOT" },
+            mostBorrowed: { $last: "$$ROOT" }
+        }
+    }
+])
