@@ -8,3 +8,8 @@
 6. Get the most and least borrowed genre ([link](A06.mongodb))
 7. Get the authors names, grouped by genre ([link](A07.mongodb))
 8. Get the books which were published between 2000 and 2005 ([link](A08.mongodb))
+9. Get peoples who's names match with the most borrowed book's authors ([link](A09.mongodb))
+10. Get the youngest people who borrowed a book ([link](A10.mongodb))
+11. Get what kind of genres do people read ([link](A11.mongodb))
+12. Get which publisher is the most popular ([link](A12.mongodb))
+13. Get which author grouped by publishers ([link](A13.mongodb))
