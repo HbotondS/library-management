@@ -1,0 +1,4 @@
+// create indexe for bookId
+use('library-management')
+
+db.Borrowed.createIndex({"bookId": 1})

@@ -12,6 +12,7 @@
     * Time: 1.85s
 6. Get the most and least borrowed genre ([link](A06.js))
     * Time: 7.92s
+    * Time with index: 2.50s
 7. Get the authors names, grouped by genre ([link](A07.js))
     * Time: 2.47s
 8. Get the books which were published between 2000 and 2005 ([link](A08.js))
