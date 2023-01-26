@@ -2,7 +2,7 @@ const { mongodbURL, insertSuccessful } = require('../common/common.js');
 
 db = connect(mongodbURL);
 
-for (var i = 0; i <= 99; i++) {
+for (var i = 0; i <= 9999; i++) {
   bookId = db.Book.aggregate([{ $sample: { size: 1 } }, { $project: { _id: 1 } }]).toArray()[0]['_id'];
 
   borrowerId = db.People.aggregate([{ $sample: { size: 1 } }, { $project: { _id: 1 } }]).toArray()[0]['_id'];
