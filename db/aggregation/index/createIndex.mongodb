@@ -1,4 +1,6 @@
-// create indexe for bookId
+// create indexe for bookId and born
 use('library-management')
 
 db.Borrowed.createIndex({"bookId": 1})
+
+db.People.createIndex({"born": 1})
